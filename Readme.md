@@ -10,7 +10,7 @@ A Ruby implementation of a shopping basket system for Acme Widget Co with suppor
 - DeliveryCalculator - Calculates delivery charges
 - OfferCalculator - Applies special offers
 
-### Command Line Interface
+### Sample Examples
 
 ```bash
 ruby basket_examples.rb
