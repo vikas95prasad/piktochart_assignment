@@ -1,3 +1,4 @@
+# Main basket class that orchestrates the shopping experience
 class Basket
   attr_reader :items
 

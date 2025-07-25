@@ -9,6 +9,7 @@ module RedWidgetHalfPriceOffer
 
     return 0.0 if pairs == 0
 
+    # Each pair gets 50% discount on the second widget
     discount_per_pair = red_widgets.first.price * 0.5
     (discount_per_pair * pairs).round(2)
   end

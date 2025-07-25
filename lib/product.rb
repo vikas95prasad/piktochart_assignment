@@ -1,3 +1,4 @@
+# Represents a single product with code and price
 class Product
   attr_reader :code, :price
 

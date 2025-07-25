@@ -1,5 +1,6 @@
 require_relative 'offers/red_widget_half_price_offer'
 
+# Manages collection of offer modules and calculates total discounts
 class OfferCalculator
   def initialize
     @offers = []
