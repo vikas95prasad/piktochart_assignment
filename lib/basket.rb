@@ -22,11 +22,11 @@ class Basket
     discounted_subtotal = subtotal - discount
     delivery = @delivery_calculator.calculate_delivery(discounted_subtotal)
 
-    discounted_subtotal + delivery
+    (discounted_subtotal + delivery).round(2)
   end
 
   def subtotal
-    calculate_subtotal
+    calculate_subtotal.round(2)
   end
 
   def discount
@@ -36,6 +36,14 @@ class Basket
   def delivery_cost
     discounted_subtotal = calculate_subtotal - discount
     @delivery_calculator.calculate_delivery(discounted_subtotal)
+  end
+
+  def clear
+    @items.clear
+  end
+
+  def item_count
+    @items.length
   end
 
   def summary
@@ -51,6 +59,6 @@ class Basket
   private
 
   def calculate_subtotal
-    @items.sum(&:price)
+    @items.sum(&:price).round(2)
   end
 end

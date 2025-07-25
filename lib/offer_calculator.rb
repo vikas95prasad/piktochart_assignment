@@ -6,14 +6,14 @@ class OfferCalculator
     setup_default_offers
   end
 
-def apply_offers(items)
-    total_discount = 0
+  def apply_offers(items)
+    total_discount = 0.0
 
     @offers.each do |offer|
       total_discount += offer.calculate_discount(items)
     end
 
-    total_discount
+    total_discount.round(2)
   end
 
   def add_offer(offer)
@@ -23,6 +23,6 @@ def apply_offers(items)
   private
 
   def setup_default_offers
-    add_offer(RedWidgetHalfPriceOffer.new)
+    add_offer(RedWidgetHalfPriceOffer)
   end
 end

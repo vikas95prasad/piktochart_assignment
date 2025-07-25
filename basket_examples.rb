@@ -8,16 +8,40 @@ class BasketExamples
     puts "Acme Widget Co - Basket Examples"
     puts "=" * 40
 
+    # Set up the system components
     catalogue = ProductCatalogue.new
     delivery_calculator = DeliveryCalculator.new
     offer_calculator = OfferCalculator.new
 
-    # Example 1: B01, G01 = $37.85
     puts "\nExample 1: Blue Widget + Green Widget"
     basket = Basket.new(catalogue, delivery_calculator, offer_calculator)
     basket.add('B01')
     basket.add('G01')
     print_basket_details(basket)
+
+    puts "\nExample 2: Two Red Widgets (with offer)"
+    basket = Basket.new(catalogue, delivery_calculator, offer_calculator)
+    basket.add('R01')
+    basket.add('R01')
+    print_basket_details(basket)
+
+    puts "\nExample 3: Red Widget + Green Widget"
+    basket = Basket.new(catalogue, delivery_calculator, offer_calculator)
+    basket.add('R01')
+    basket.add('G01')
+    print_basket_details(basket)
+
+    puts "\nExample 4: Mixed basket with multiple items"
+    basket = Basket.new(catalogue, delivery_calculator, offer_calculator)
+    basket.add('B01')
+    basket.add('B01')
+    basket.add('R01')
+    basket.add('R01')
+    basket.add('R01')
+    print_basket_details(basket)
+
+    puts "\n" + "=" * 40
+    puts "Examples completed!"
   end
 
   private
@@ -26,10 +50,10 @@ class BasketExamples
     summary = basket.summary
 
     puts "Items: #{summary[:items].join(', ')}"
-    puts "Subtotal: $#{format('%.2f', summary[:subtotal])}"
-    puts "Discount: -$#{format('%.2f', summary[:discount])}" if summary[:discount] > 0
-    puts "Delivery: $#{format('%.2f', summary[:delivery])}"
-    puts "Total: $#{format('%.2f', summary[:total])}"
+    puts "Subtotal: $#{summary[:subtotal].round(2)}"
+    puts "Discount: -$#{summary[:discount].round(2)}" if summary[:discount] > 0
+    puts "Delivery: $#{summary[:delivery].round(2)}"
+    puts "Total: $#{summary[:total].round(2)}"
     puts "-" * 30
   end
 end
