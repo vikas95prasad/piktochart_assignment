@@ -20,10 +20,6 @@ class ProductCatalogue
     @products[code] = Product.new(code, price)
   end
 
-  def all_products
-    @products.values
-  end
-
   def product_name(code)
     DEFAULT_PRODUCTS.dig(code, :name) || 'Unknown Product'
   end

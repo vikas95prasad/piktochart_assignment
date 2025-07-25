@@ -9,8 +9,4 @@ class Product
   def ==(other)
     other.is_a?(Product) && code == other.code && price == other.price
   end
-
-  def to_s
-    "#{code}: $#{price}"
-  end
 end

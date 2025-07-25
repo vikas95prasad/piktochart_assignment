@@ -8,7 +8,6 @@ class BasketExamples
     puts "Acme Widget Co - Basket Examples"
     puts "=" * 40
 
-    # Set up the system components
     catalogue = ProductCatalogue.new
     delivery_calculator = DeliveryCalculator.new
     offer_calculator = OfferCalculator.new
