@@ -1,5 +1,7 @@
 class OfferCalculator
   def initialize
+    @offers = []
+    setup_default_offers
   end
 
   def apply_offers
