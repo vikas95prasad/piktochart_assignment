@@ -26,6 +26,10 @@ class BasketExamples
     summary = basket.summary
 
     puts "Items: #{summary[:items].join(', ')}"
+    puts "Subtotal: $#{format('%.2f', summary[:subtotal])}"
+    puts "Discount: -$#{format('%.2f', summary[:discount])}" if summary[:discount] > 0
+    puts "Delivery: $#{format('%.2f', summary[:delivery])}"
+    puts "Total: $#{format('%.2f', summary[:total])}"
     puts "-" * 30
   end
 end
