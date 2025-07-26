@@ -11,6 +11,8 @@ class DeliveryCalculator
   end
 
   def calculate_delivery(subtotal)
+    return 4.95 if subtotal.nil? || subtotal < 0
+
     rule = @delivery_rules.find { |r| subtotal >= r[:threshold] }
     rule[:charge]
   end

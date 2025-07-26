@@ -1,6 +1,9 @@
 require_relative 'product'
 
+# Manages the collection of available products
+# Provides lookup functionality and default product setup
 class ProductCatalogue
+  # Default products for Acme Widget Co
   DEFAULT_PRODUCTS = {
     'R01' => { price: '32.95', name: 'Red Widget' },
     'G01' => { price: '24.95', name: 'Green Widget' },
