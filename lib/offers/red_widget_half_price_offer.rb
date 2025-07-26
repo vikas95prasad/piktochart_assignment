@@ -1,7 +1,7 @@
 require_relative '../product_catalogue'
 
 module RedWidgetHalfPriceOffer
-  RED_WIDGET_CODE = ProductCatalogue::DEFAULT_PRODUCTS.keys.first
+  RED_WIDGET_CODE = 'R01'
 
   def self.calculate_discount(items)
     red_widgets = items.select { |item| item.code == RED_WIDGET_CODE }
