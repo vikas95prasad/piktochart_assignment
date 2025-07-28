@@ -4,11 +4,11 @@ require_relative 'product'
 # Provides lookup functionality and default product setup
 class ProductCatalogue
   # Default products for Acme Widget Co
-  DEFAULT_PRODUCTS = {
-    'R01' => { price: '32.95', name: 'Red Widget' },
-    'G01' => { price: '24.95', name: 'Green Widget' },
-    'B01' => { price: '7.95', name: 'Blue Widget' }
-  }.freeze
+  DEFAULT_PRODUCTS = [
+    { name: 'Red Widget', code: 'R01', price: '32.95' },
+    { name: 'Green Widget', code: 'G01', price: '24.95' },
+    { name: 'Blue Widget', code: 'B01', price: '7.95' }
+  ].freeze
 
   def initialize
     @products = {}
@@ -19,19 +19,20 @@ class ProductCatalogue
     @products[code]
   end
 
-  def add_product(code, price)
-    @products[code] = Product.new(code, price)
+  def add_product(name, code, price)
+    @products[code] = Product.new(name, code, price)
   end
 
   def product_name(code)
-    DEFAULT_PRODUCTS.dig(code, :name) || 'Unknown Product'
+    product = @products[code]
+    product ? product.name : 'Unknown Product'
   end
 
   private
 
   def setup_default_products
-    DEFAULT_PRODUCTS.each do |code, details|
-      add_product(code, details[:price])
+    DEFAULT_PRODUCTS.each do |product_data|
+      add_product(product_data[:name], product_data[:code], product_data[:price])
     end
   end
 end
